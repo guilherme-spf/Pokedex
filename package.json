@@ -1,0 +1,25 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Projeto Pokedex",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilherme-spf/Pokedex.git"
+  },
+  "author": "Guilherme Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guilherme-spf/Pokedex/issues"
+  },
+  "homepage": "https://github.com/guilherme-spf/Pokedex#readme",
+  "dependencies": {
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
