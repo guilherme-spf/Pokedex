@@ -1,39 +1,65 @@
 const express = require("express");
-const path = require("path")
+const path = require("path");
+const { addAbortSignal } = require("stream");
 const app = express();
 
 app.set("view engine", "ejs")
 app.use(express.static(path.join(__dirname, "public")))
+app.use(express.urlencoded())
 
 const pokedex = [
     {
-       id: 359, 
+       id: 1, 
        nome: "Absol",
-       descricao: "Rápido como o vento, Absol corre através de campos e montanhas. Seu chifre curvo, parecido com arco, é extremamente sensível aos sinais de alerta de desastres naturais.",
+       descricao: "Swift as the wind, Absol races through fields and mountains. Its curved, bow-like horn is acutely sensitive to the warning signs of natural disasters.",
        tipo: "Dark",
-       categoria: "Desastre",
+       categoria: "Disaster",
        imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/359.png"
     },
     {
-        id: 389, 
+        id: 2, 
         nome: "Rayquaza",
-        descricao: "Diz-se que Rayquaza viveu por centenas de milhões de anos. As lendas permanecem de como ele colocou para descansar o confronto entre Kyogre e Groudon.",
+        descricao: "Rayquaza is said to have lived for hundreds of millions of years. Legends remain of how it put to rest the clash between Kyogre and Groudon.",
         tipo: "Dragon",
-        categoria: "Céu Alto",
+        categoria: "Sky High",
         imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/384.png"
      },
      {
-        id: 448, 
+        id: 3, 
         nome: "Lucario",
-        descricao: "Controla ondas conhecidas como auras, que são poderosas o suficiente para pulverizar rochas enormes. Ele usa essas ondas para derrubar sua presa.",
+        descricao: "It controls waves known as auras, which are powerful enough to pulverize huge rocks. It uses these waves to take down its prey.",
         tipo: "Fighting",
         categoria: "Aura",
         imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/448.png"
      },
 ]
 
+let pokemon = undefined
+
 app.get("/", (req, res) => {
-  res.render("index", {pokedex});
+  res.render("index", {pokedex, pokemon});
 });
+
+app.post("/add", (req, res) => {
+   const pokemon = req.body
+   pokemon.id = pokedex.length + 1;
+   pokedex.push(pokemon)
+   res.redirect("/")
+})
+
+app.get("/espec/:id", (req, res) =>{
+   const id = +req.params.id;
+   pokemon = pokedex.filter(Boolean).find(pokemon => pokemon.id === id)
+   res.redirect("/")
+})
+
+app.post("/update/:id", (req, res) => {
+   const id = +req.params.id - 1;
+   const newPoke = req.body;
+   newPoke.id = id + 1;
+   pokedex[id] = newPoke;
+   pokemon = undefined
+   res.redirect("/")
+})
 
 app.listen(3000, ( ) => console.log("Servidor rodando em http://localhost:3000"));

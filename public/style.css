@@ -1,3 +1,118 @@
-h2{
-    color: red;
+@import url ('https://fonts.googleapis.com/css2? família=Roboto:ital,wght@0,300;0.400;0.500;0.700;0.900;1.100;1.300;1.400;1.500;1.700;1.900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, Arial;
+}
+
+header{
+    background-color: rgb(205, 11, 11);
+    height: 10rem;
+    text-align: center;
+}
+
+header h1{
+    padding: 3rem;
+}
+
+main{
+    margin: 0 3rem 0 3rem;
+}
+
+section#card{
+    display: flex;
+    margin-top: 3rem;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+section#card div.cads{
+    width: 20rem;
+    box-shadow: 5px 5px 5px #00000020;
+    padding: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+
+}
+
+section#card div.cads img{
+    width: 100%;
+}
+
+section h2{
+    padding-bottom: .5rem;
+}
+
+section p{
+    padding-bottom: .5rem;
+}
+
+section a{
+    background: #3333FF;
+    border-radius: 13px;
+    padding: 2px 10px 2px 10px;
+    text-decoration: none;
+    color: black;
+    border-color: black;
+}
+
+section a:hover{
+    background-color: #FF3232;
+    color:white;
+}
+
+section button.tipo{
+    background: #3333FF;
+    border-radius: 13px;
+    padding: 2px 10px 2px 10px;
+    margin: 0 auto;
+}
+
+section button.cate{
+    background: #3333FF;
+    border-radius: 13px;
+    padding: 2px 10px 2px 10px;
+}
+
+section#cadastro{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #FF3232;
+
+    padding: 5rem;
+}
+
+section#cadastro h2{
+    width: 100%;
+    text-align: center;
+
+    padding-bottom: 1.5rem;
+}
+
+section#cadastro form input{
+    width: 100%;
+    padding: .5rem;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: .7rem;
+}
+
+section#cadastro form label{
+    margin-bottom: .5rem;
+}
+
+section#cadastro form button{
+    padding: .3rem;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    margin:  0 auto;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+section#cadastro form button:hover{
+    background-color:#3333FF ;
 }
